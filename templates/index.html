@@ -85,13 +85,13 @@
 	            <div class="col-md-8">
 	                <h1 class="hello" style="background-color: rgba(0,0,0,0.2);">
 	                   <a href="/">You see, here at 3341B,</a>
-	                    <small>we don't like to be complemented. If you complement us, we just don't know what to do.</small>
+	                    <small>{{ info.greeting|random }}</small>
 	                </h1>
 	            </div>
 	            <div class="col-md-4">
 	                <div class="actions text-center">
 	                     <a class="btn btn-lg btn-fill btn-warning" href="#gents">Le Gents</a>
-	                     <a class="btn btn-lg btn-fill btn-success" href="/">Add moar buttons</a>
+	                     <a class="btn btn-lg btn-fill btn-success" href="#others">Le Other Stuff</a>
 	                </div>
 	            </div>
 	        </div>
@@ -108,502 +108,83 @@
 
         <div class="container">
             <div class="row">
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Rubik thumbnail" src="/static/assets/img/leo.jpg" />
-                            <a href="#">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="#">
-                                    <h3>Leonard Chan</h3>
-                                    <p>Have you ever met a meme so dank you just have to ...</p>
+                {% for resident in info.residents %}
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img alt="thumbnail" src="{{ resident.thumbnail_url }}" />
+                                <a href="{{ resident.about_page_url }}">
+                                    <div class="thumb-cover"></div>
                                 </a>
-                                <b class="actions">
-                    				<a href="#">About</a>
-                					<b class="separator">|</b>
-                                	<a class="blue-text" href="http://leonardchan.me" target="_blank">My website</a>
-                                </b>
+                            </div>
+                            <div class="card-info">
+                                <div class="moving">
+                                    <a href="#">
+                                        <h3>{{ resident.first_name }} {{ resident.last_name }}</h3>
+                                        <p {% if resident.custom_description_font_size %}style="font-size: {{ resident.custom_description_font_size }};"{% endif %}>{{ resident.description }}</p>
+                                    </a>
+                                    <b class="actions">
+                                        {% for link in resident.links %}
+                                            <a class="blue-text" href="{{ link.url }}" {% if link.target %}target="{{ link.target }}"{% endif %}>{{ link.text }}</a>
+                                            {% if not loop.last %}
+                                                <b class="separator">|</b>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </b>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Rubik thumbnail" src="/static/assets/img/rob.jpg" />
-                            <a href="#">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="#">
-                                    <h3>Rob Hausler</h3>
-                                    <p>- Ph. D in Atheism and Stage 420 UltraAthest</p>
-                                </a>
-                                <b class="actions">
-                    				<a href="#">About</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Rubik thumbnail" src="/static/assets/img/jmal.jpg" />
-                            <a href="#">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="#">
-                                    <h3>John Maloney</h3>
-                                    <p>Leo, is this pillow talk? Space</p>
-                                </a>
-                                <b class="actions">
-                    				<a href="#">About</a>
-                					<b class="separator">|</b>
-                                	<a class="blue-text" href="http://jmal0.github.io/quotesmyquotes-website/" target="_blank">My website</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Rubik thumbnail" src="/static/assets/img/ryan.jpg" />
-                            <a href="#">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="#">
-                                    <h3>Ryan Young</h3>
-                                    <p>If at 4:20, you blaze it, at 8:40, do you double blaze it?</p>
-                                </a>
-                                <b class="actions">
-                    				<a href="#">About</a>
-                					<b class="separator">|</b>
-                                	<a class="blue-text" href="http://rdyoung.us/" target="_blank">My website</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Opt wizard thumbnail" src="http://s3.amazonaws.com/creativetim_bucket/products/22/opt_wizard_thumbnail.jpg?1407329324" />
-                            <a href="/product/bootstrap-wizard">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 3,096</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 27</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/bootstrap-wizard">
-                                    <h3>Bootstrap Wizard</h3>
-                                    <p>Fully responsive wizard that comes with 3 useful examples and 5 bright colors. The Bootstrap...</p>
-                                </a>
-                                <b class="actions">
-                    				<a href="/product/bootstrap-wizard">Details</a>
-                					<b class="separator">|</b>
-                                	<a class="blue-text" href="/live/bootstrap-wizard" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Coming sssoon thumbnail" src="http://s3.amazonaws.com/creativetim_bucket/products/20/coming_sssoon_thumbnail.png?1414139407" />
-                            <a href="/product/coming-sssoon-page">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 11,634</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 50</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/coming-sssoon-page">
-                                    <h3>Coming Sssoon Page
-                        
-                    </h3>
-                                    <p>Free one page item based on Bootstrap 3. Use Coming Sssoon Page to create a following group users...</p>
-                                </a> <b class="actions">
-                    <a href="/product/coming-sssoon-page">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/coming-sssoon-page" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Opt rotating card thumbnail2" src="http://s3.amazonaws.com/creativetim_bucket/products/19/opt_rotating_card_thumbnail2.jpg?1403558578" />
-                            <a href="/product/rotating-css-card">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 2,480</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 24</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/rotating-css-card">
-                                    <h3>Rotating CSS Card
-                        
-                    </h3>
-                                    <p>We found that sometimes when we work at different websites, we want to show a lot of information...</p>
-                                </a> <b class="actions">
-                    <a href="/product/rotating-css-card">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/rotating-css-card" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Opt navbar thumbnail3" src="http://s3.amazonaws.com/creativetim_bucket/products/18/opt_navbar_thumbnail3.jpg?1403558714" />
-                            <a href="/product/navbar-with-icons">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 2,033</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 14</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/navbar-with-icons">
-                                    <h3>Navbar With Icons
-                        
-                    </h3>
-                                    <p>It looks like everybody who used Bootstrap wanted to integrate a more beautiful and interesting...</p>
-                                </a> <b class="actions">
-                    <a href="/product/navbar-with-icons">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/navbar-with-icons" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Gsdk thumbnail3" src="http://s3.amazonaws.com/creativetim_bucket/products/17/GSDK_thumbnail3.png?1408635348" />
-                            <a href="/product/get-shit-done-kit">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 8,107</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 44</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/get-shit-done-kit">
-                                    <h3>Get Shit Done Kit
-                        
-                    </h3>
-                                    <p>Free Bootstrap 3 UI Kit, the best starting point for any online project you are building. It...</p>
-                                </a> <b class="actions">
-                    <a href="/product/get-shit-done-kit">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/get-shit-done-kit" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Opt full calendar thumbnail3" src="http://s3.amazonaws.com/creativetim_bucket/products/11/opt_full_calendar_thumbnail3.jpg?1403558825" />
-                            <a href="/product/full-calendar">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 1,438</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 16</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/full-calendar">
-                                    <h3>Full Calendar
-                        
-                    </h3>
-                                    <p>Looking for a visual organisation of task or meetings? This is the perfect tool to do so. Tim has...</p>
-                                </a> <b class="actions">
-                    <a href="/product/full-calendar">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/full-calendar" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Opt login template" src="http://s3.amazonaws.com/creativetim_bucket/products/12/opt_login_template.jpg?1403558944" />
-                            <a href="/product/login-and-register-modal">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 1,675</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 19</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/login-and-register-modal">
-                                    <h3>Login and Register Modal
-                        
-                    </h3>
-                                    <p>Do you want your login/register process to be seamless? Just add this awesome modal that is easy...</p>
-                                </a> <b class="actions">
-                    <a href="/product/login-and-register-modal">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/login-and-register-modal" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="With gold" src="http://s3.amazonaws.com/creativetim_bucket/products/13/with-gold.jpg?1412781154" />
-                            <a href="/product/feedback-form">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 856</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 6</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/feedback-form">
-                                    <h3>Feedback Form
-                        
-                    </h3>
-                                    <p>You know that everybody hates feedback forms and nobody wants to complete a long and ugly one?...</p>
-                                </a> <b class="actions">
-                    <a href="/product/feedback-form">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/feedback-form" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img alt="Opt datepicker thumbnail2" src="http://s3.amazonaws.com/creativetim_bucket/products/14/opt_datepicker_thumbnail2.jpg?1403559194" />
-                            <a href="/product/datepicker">
-                                <div class="thumb-cover">
-                                </div>
-                            </a>
-                            <div class="details">
-                                <div class="user hidden">
-                                    <div class="user-photo">
-                                        <img alt="Thumb" src="http://s3.amazonaws.com/creativetim_bucket/photos/2/thumb.png?1394973934" />
-                                    </div>
-                                    <div class="name">Tim </div>
-                                </div>
-                                <div class="numbers">
-                                    <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i> 1,067</b>
-                                    <b class="comments-icon"><i class="fa fa-comment"></i> 14</b>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="card-info">
-                            <div class="moving">
-                                <a href="/product/datepicker">
-                                    <h3>Datepicker
-                        
-                    </h3>
-                                    <p>Since every project needs a datepicker, we created a nice personalized one inspired by iOS7. Like...</p>
-                                </a> <b class="actions">
-                    <a href="/product/datepicker">Details</a>
-                	<b class="separator">|</b>
-                                <a class="blue-text" href="/live/datepicker" target="_blank">Live Preview</a>
-                                </b>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
+                {% endfor %}
             </div>
         </div>
 
+        <div id="others" class="page-title">
+            <div class="container">
+                <h1 class="title">Le Other Stuff</h1>
+            </div>
+        </div>
 
+        <div class="container">
+            <div class="row">
+                {% for card in info.cards %}
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img alt="thumbnail" src="{{ card.thumbnail_url }}" />
+                                <a href="{{ card.links[0].url }}">
+                                    <div class="thumb-cover"></div>
+                                </a>
+                                <div class="details">
+                                    <div class="numbers">
+                                        <b class="comments-icon"><i class="fa fa-comment"></i> {{ card.count }}</b>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <div class="moving">
+                                    <a href="/product/bootstrap-wizard">
+                                        <h3>{{ card.name }}</h3>
+                                        <p>{{ card.description }}</p>
+                                    </a>
+                                    <b class="actions">
+                                        {% for link in card.links %}
+                                            <a class="blue-text" href="{{ link.url }}" {% if link.target %}target="{{ link.target }}"{% endif %}>{{ link.text }}</a>
+                                            {% if not loop.last %}
+                                                <b class="separator">|</b>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!--
         <div class="section section-gallery" id="galleryParallax">
             <div class="parallax-background">
                 <img alt="Gallery" src="" alt="Dank memes yo" />
@@ -653,7 +234,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card -->
 
                     </div>
                     <div class="col-md-4">
@@ -686,7 +266,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card -->
 
                     </div>
                     <div class="col-md-4">
@@ -719,21 +298,20 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end card -->
 
                     </div>
                 </div>
 
             </div>
         </div>
-
+        -->
 
 
     </div>
 
 
 
-    <div class="footer-title ">
+    <!--<div class="footer-title ">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -754,12 +332,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="footer">
         <div class="overlayer">
             <div class="container">
-                <div class="row support">
+                <!--<div class="row support">
                     <div class="col-sm-3">
                         <h4>Help and Support</h4>
                         <ul class="list-unstyled">
@@ -807,10 +385,11 @@
                             <li>all rights reserved.</li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
                 <div class="row">
                     <div class="credits">
-                        &copy; 2015 Creative Tim, made with <i class="icon-heart heart" alt="love"></i> for a better web.
+                        <!--&copy; 2015 Creative Tim, made with <i class="icon-heart heart" alt="love"></i> for a better web.-->
+                        &copy; 2015 Sample text
                     </div>
                 </div>
             </div>

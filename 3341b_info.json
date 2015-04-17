@@ -1,0 +1,106 @@
+{
+	"greeting": ["we don't like to be complemented. If you complement us, we just don't know what to do."],
+	"residents": [
+		{
+			"first_name": "Leonard",
+			"last_name": "Chan",
+			"about_page_url": "#",
+			"thumbnail_url": "/static/assets/img/leo.jpg",
+			"description": "Have you ever met a meme so dank you just have to ...",
+			"links": [
+				{
+					"url": "#",
+					"text": "About"
+				},
+				{
+					"url": "http://leonardchan.me/",
+					"text": "My website",
+					"target": "_blank"
+				}
+			]
+		},
+		{
+			"first_name": "Rob",
+			"last_name": "Hausler",
+			"about_page_url": "#",
+			"thumbnail_url": "/static/assets/img/rob.jpg",
+			"description": "- Ph. D in Atheism and Stage 420 UltraAthest",
+			"links": [
+				{
+					"url": "#",
+					"text": "About"
+				}
+			]
+		},
+		{
+			"first_name": "John",
+			"last_name": "Maloney",
+			"about_page_url": "#",
+			"personal_website_url": "http://jmal0.github.io/quotesmyquotes-website/",
+			"thumbnail_url": "/static/assets/img/jmal.jpg",
+			"description": "\"Elon musk writes about Kanye West for people top 100 most influential people\". This is like my wet dream.",
+			"custom_description_font_size": "12px",
+			"links": [
+				{
+					"url": "#",
+					"text": "About"
+				},
+				{
+					"url": "http://jmal0.github.io/quotesmyquotes-website/",
+					"text": "My website",
+					"target": "_blank"
+				}
+			],
+			"quotes": [
+				"Did you know that a weeaboo wobbles, but it doesn't fall over.",
+				"Now that I'm done using the urination station, I'm ready to watch anime.",
+				"Its too late to be at work. Its too early to be at home. Just the right time to browse dank memes."
+			]
+		},
+		{
+			"first_name": "Ryan",
+			"last_name": "Young",
+			"about_page_url": "#",
+			"personal_website_url": "http://rdyoung.us/",
+			"thumbnail_url": "/static/assets/img/ryan.jpg",
+			"description": "If at 4:20, you blaze it, at 8:40, do you double blaze it?",
+			"links": [
+				{
+					"url": "#",
+					"text": "About"
+				},
+				{
+					"url": "http://rdyoung.us/",
+					"text": "My website",
+					"target": "_blank"
+				}
+			]
+		}
+	],
+	"cards": [
+		{
+			"name": "Dank Memes",
+			"thumbnail_url": "/static/assets/img/dank_memes_in_your_area.png",
+			"count": 0,
+			"description": "Sample text",
+			"links": [
+				{
+					"url": "#",
+					"text": "Browse"
+				}
+			]
+		},
+		{
+			"name": "3341B Quotes",
+			"thumbnail_url": "/static/assets/img/quote_thumbnail.png",
+			"count": 0,
+			"description": "Reddit intellectuals here ...",
+			"links": [
+				{
+					"url": "#",
+					"text": "Check out"
+				}
+			]
+		}
+	]
+}

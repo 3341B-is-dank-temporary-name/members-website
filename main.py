@@ -1,17 +1,27 @@
 """`main` is the top level module for your Flask application."""
 
 # Import the Flask Framework
-from flask import Flask, render_template
+from flask import Flask, render_template, current_app, jsonify
 app = Flask(__name__)
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
+import json
 
 @app.route('/')
 def index():
-    """Return a friendly HTTP greeting."""
-    return render_template("index.html")
+    # Load 3341b info
+    with current_app.open_resource("3341b_info.json") as f:
+        info = json.load(f)
 
+    return render_template("index.html", info=info)
+
+@app.route("/json")
+def raw_json():
+    # Load 3341b info
+    with current_app.open_resource("3341b_info.json") as f:
+        info = json.load(f)
+    return jsonify(info=info)
 
 @app.errorhandler(404)
 def page_not_found(e):
