@@ -1,0 +1,64 @@
+<nav class="navbar filter-bar fixed-absolute" role="navigation">
+    <div class="container">
+        <div class="notification">
+            <div id="notif-message" class="notif-message" style="display: none;" notice-type=success>
+            </div>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="/">
+                <div class="logo">
+                    <img src="/static/assets/img/cup.jpeg" />
+                </div>
+                <p>{{ info.navbar_greetings|random }}</p>
+            </a>
+        </div>
+
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="{% if home %}active{% endif %}">
+                    <a href="/">
+                        <i class="icon-home icon-2x"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                <li class="{% if quotes %}active{% endif %}">
+                    <a href="#" role="button" data-toggle="modal">
+                        <i class="icon-quote-left icon-2x"></i>
+                        <p>Quotes</p>
+                    </a>
+                </li>
+                <li class="{% if memes %}active{% endif %}">
+                    <a href="#">
+                        <span style="line-height: 1.8em;">( ͡° ͜ʖ ͡°)</span>
+                        <p>Dank Memes</p>
+                    </a>
+                </li>
+            </ul>
+
+            <form accept-charset="UTF-8" action="/search" class="navbar-form navbar-right" method="get" role="search" style="display:none">
+                <div style="margin:0;padding:0;display:inline">
+                    <input name="utf8" type="hidden" value="&#x2713;" />
+                </div>
+                <div class="input-group">
+                    <input class="form-control search" id="search" name="search" placeholder="Search themes and freebies..." type="text" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+</nav>

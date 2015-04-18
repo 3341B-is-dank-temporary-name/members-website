@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Wecome to 3341B, scrubm80s!</title>
+    <meta content="The dankest group of apartm8s you done seen this side of reddit." name="description" />
+    <meta content="dank, memes" name="keywords" />
+    <link href="/static/css/styles.css" media="all" rel="stylesheet" />
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+    <div class="parallax parallax-product" data-no-turbolink style="background: url('/static/assets/img/Dongers will be raised.gif')no-repeat fixed;background-size: cover; ">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <!--<div class="product-image">
+                        <a href="/live/rubik-presentation-page" target="_blank">
+                            <img alt="Rubik template" src="http://s3.amazonaws.com/creativetim_bucket/products/28/original/rubik_template.png?1427552428" />
+                        </a>
+                    </div>=-->
+                </div>
+                <div class="col-sm-6">
+                    <div class="pay-area text-right">
+                        <h3 class="product-name">Leonard Chan</h3>
+                        <h6>Dongers will be raised</h6>
+                        <a href="http://leonardchan.me/" class="btn btn-success btn-fill btn-lg" target="_blank">My Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-white header-summary" data-no-turbolink>
+        <div class="container product">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="col-sm-4">
+                        <div class="small-info">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                            <h6 class="numbers"><strong>69</strong> Upbusters</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="small-info">
+                            <img src="/static/assets/img/hitmarker.jpg" alt="No-scopes" style="width: 40px;" />
+                            <h6 class="numbers"><strong>360</strong> Confirmed No-scopes</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="small-info">
+                            <img src="/static/assets/img/weed.jpg" alt="Blaze it" style="width: 40px;" />
+                            <h6 class="numbers"><strong>420</strong> In-Game Blazes</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="small-info text-center">
+                        <span class="share-area numbers">
+                            <a title="Share" href="https://www.facebook.com/people/Leo-C-Han/100003942254617" class="share-btn facebook-btn social facebook" target="_blank">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a title="Post" href="https://plus.google.com/110881716181295493866/posts" class="share-btn google-plus-btn social google" target="_blank">
+                                <i class="fa fa-google-plus-square"></i>
+                            </a>
+                            <a title="Post" href="https://github.com/PiJoules" class="share-btn google-plus-btn social" target="_blank">
+                                <i class="fa fa-github-square" style="color: black;"></i>
+                            </a> 
+                        </span>
+                        <h6 class="numbers"> Blunts </h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-grey" data-no-turbolink>
+        <div class="container product">
+            <div class="row description">
+                <div class="col-md-8">
+                    <h2 class="legend">Product description</h2>
+                    <p>I sexually Identify myself as a dank meme. Ever since I was a boy I dreamed of being uploaded onto the imgur website and linked into the reddit threads. People say to me that a person being a meme is Impossible and I’m retarded but I don’t care, I’m beautiful. I’m having a computer scientist put my brain into my computer like johnny depp in transendence, equipping me with the dankest of pictures from the internet.</p>
+                    <p>From now on I want you guys to call me “Sir Danks-a-lot” and respect my right to meme from above and meme needlessly. If you can’t accept me you’re a memephobe and need to check your internet privilege. Thank you for being so understanding.</p>
+
+                    <h3>Sample Text</h3>
+                    <p>Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-white">
+        <div class="container product">
+            <h3>You should also check out the other gents</h3>
+        </div>
+    </div>
+
+    <div class="main-grey">
+        <div class="container" id="suggestions">
+            <div class="row">
+                {% for resident in info.residents %}
+                    {% if resident.about_page_url != "/leo" %}
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card">
+                                <div class="thumbnail">
+                                    <img alt="thumbnail" src="{{ resident.thumbnail_url }}" />
+                                    <a href="{{ resident.about_page_url }}">
+                                        <div class="thumb-cover"></div>
+                                    </a>
+                                </div>
+                                <div class="card-info">
+                                    <div class="moving">
+                                        <a href="#">
+                                            <h3>{{ resident.first_name }} {{ resident.last_name }}</h3>
+                                            <p {% if resident.custom_description_font_size %}style="font-size: {{ resident.custom_description_font_size }};"{% endif %}>{{ resident.description }}</p>
+                                        </a>
+                                        <b class="actions">
+                                            {% for link in resident.links %}
+                                                <a class="blue-text" href="{{ link.url }}" {% if link.target %}target="{{ link.target }}"{% endif %}>{{ link.text }}</a>
+                                                {% if not loop.last %}
+                                                    <b class="separator">|</b>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="main-white">
+        <div class="container product">
+            <h3>Le Other Stuff</h3>
+        </div>
+    </div>
+
+    <div class="main-grey">
+        <div class="container" id="suggestions">
+            <div class="row">
+                {% for card in info.cards %}
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img alt="thumbnail" src="{{ card.thumbnail_url }}" />
+                                <a href="{{ card.links[0].url }}">
+                                    <div class="thumb-cover"></div>
+                                </a>
+                                <div class="details">
+                                    <div class="numbers">
+                                        <b class="comments-icon"><i class="fa fa-comment"></i> {{ card.count }}</b>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <div class="moving">
+                                    <a href="/product/bootstrap-wizard">
+                                        <h3>{{ card.name }}</h3>
+                                        <p>{{ card.description }}</p>
+                                    </a>
+                                    <b class="actions">
+                                        {% for link in card.links %}
+                                            <a class="blue-text" href="{{ link.url }}" {% if link.target %}target="{{ link.target }}"{% endif %}>{{ link.text }}</a>
+                                            {% if not loop.last %}
+                                                <b class="separator">|</b>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <script style="text/javascript" src="/static/js/scripts.js"></script>
+    <script style="text/javascript" src="/static/js/moarscripts.js"></script>
+</body>
+
+
+</html>

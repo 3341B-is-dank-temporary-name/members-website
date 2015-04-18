@@ -12,71 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar filter-bar fixed-absolute" role="navigation">
-        <div class="container">
-            <div class="notification">
-                <div id="notif-message" class="notif-message" style="display: none;" notice-type=success>
-                </div>
-            </div>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="/">
-                    <div class="logo">
-                        <img src="/static/assets/img/cup.jpeg" />
-                    </div>
-                    <p>Greetings traveler</p>
-                </a>
-            </div>
-
-
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                </ul>
-
-
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li class="active">
-                        <a href="/">
-                            <i class="icon-home icon-2x"></i>
-                            <p>Home</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" role="button" data-toggle="modal">
-                            <i class="icon-quote-left icon-2x"></i>
-                            <p>Quotes</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span style="line-height: 1.8em;">( ͡° ͜ʖ ͡°)</span>
-                            <p>Dank Memes</p>
-                        </a>
-                    </li>
-                </ul>
-
-                <form accept-charset="UTF-8" action="/search" class="navbar-form navbar-right" method="get" role="search" style="display:none">
-                    <div style="margin:0;padding:0;display:inline">
-                        <input name="utf8" type="hidden" value="&#x2713;" />
-                    </div>
-                    <div class="input-group">
-                        <input class="form-control search" id="search" name="search" placeholder="Search themes and freebies..." type="text" />
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-    </nav>
+    {% include "navbar.html" %}
 
 	<div class="parallax parallax-small">
 	    <div class="over-gradient"></div>
@@ -334,67 +270,7 @@
         </div>
     </div>-->
 
-    <div class="footer">
-        <div class="overlayer">
-            <div class="container">
-                <!--<div class="row support">
-                    <div class="col-sm-3">
-                        <h4>Help and Support</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="/about-tim">About Tim</a></li>
-                            <li><a href="/contact-us">Contact Us</a></li>
-                            <li><a href="/bootstrap">Bootstrap</a></li>
-                            <li> <a href="#feedbackModal" role="button" data-toggle="modal" class="blue-link">Give Feedback</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3">
-                        <h4>Happy people</h4>
-                        <ul class="list-unstyled social-list">
-                            <li>
-                                <h3 class="numbers-dont-lie"><b>25,185</b> accounts</h3></li>
-                            <li>
-                                <h3 class="numbers-dont-lie"><b>34,495</b> downloads</h3></li>
-
-                        </ul>
-                    </div>
-                    <div class="col-sm-4">
-                        <h4>Newsletter</h4>
-                        <p>Get tips and tricks in your inbox every month.</p>
-
-
-                        <form accept-charset="UTF-8" action="/newsletter" class="form-inline" data-remote="true" html="{:multipart=&gt;true}" method="post">
-                            <div style="margin:0;padding:0;display:inline">
-                                <input name="utf8" type="hidden" value="&#x2713;" />
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                <input class="form-control" id="subscribe_email" name="subscribe_email" placeholder="Enter Email" type="email" />
-                            </div>
-                            <input class="btn btn-info btn-fill" name="commit" type="submit" value="Subscribe" />
-                        </form>
-                        <h3 class="subscribers">
-                    727 
-                    Subscribers</h3>
-                    </div>
-                    <div class="col-sm-2">
-                        <h4>Creative Tim</h4>
-                        <ul class="list-unstyled">
-                            <li> <a href="/terms">Terms &amp; Conditions</a></li>
-                            <li> <a href="/privacy">Privacy Policy</a></li>
-                            <li><a href="/license">Licenses</a></li>
-                            <li>all rights reserved.</li>
-                        </ul>
-                    </div>
-                </div>-->
-                <div class="row">
-                    <div class="credits">
-                        <!--&copy; 2015 Creative Tim, made with <i class="icon-heart heart" alt="love"></i> for a better web.-->
-                        &copy; 2015 Sample text
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include "footer.html" %}
 
     <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-account">

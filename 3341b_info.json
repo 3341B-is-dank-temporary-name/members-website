@@ -1,15 +1,16 @@
 {
+	"navbar_greetings": ["Greetings traveler"],
 	"greeting": ["we don't like to be complemented. If you complement us, we just don't know what to do."],
 	"residents": [
 		{
 			"first_name": "Leonard",
 			"last_name": "Chan",
-			"about_page_url": "#",
+			"about_page_url": "/leo",
 			"thumbnail_url": "/static/assets/img/leo.jpg",
 			"description": "Have you ever met a meme so dank you just have to ...",
 			"links": [
 				{
-					"url": "#",
+					"url": "/leo",
 					"text": "About"
 				},
 				{
@@ -24,7 +25,7 @@
 			"last_name": "Hausler",
 			"about_page_url": "#",
 			"thumbnail_url": "/static/assets/img/rob.jpg",
-			"description": "- Ph. D in Atheism and Stage 420 UltraAthest",
+			"description": "- Ph. D in Atheism and Stage 420 Enlightenment",
 			"links": [
 				{
 					"url": "#",

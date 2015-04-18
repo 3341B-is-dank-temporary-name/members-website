@@ -262,8 +262,8 @@ th {
 }
 @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url("/static/assets/bootstrap/glyphicons-halflings-regular-b21092b8fbcd707a1af4e5c491788a88.eot");
-    src: url("/static/assets/bootstrap/glyphicons-halflings-regular-b21092b8fbcd707a1af4e5c491788a88.eot?#iefix") format("embedded-opentype"), url("/static/assets/bootstrap/glyphicons-halflings-regular-5840366f483f32e8e39f6d867b9dccd3.woff2") format("woff2"), url("/static/assets/bootstrap/glyphicons-halflings-regular-d100d875f8f41645831e9b982667dd40.woff") format("woff"), url("/static/assets/bootstrap/glyphicons-halflings-regular-6957c4911ce71088e03af494952b72d3.ttf") format("truetype"), url("/static/assets/bootstrap/glyphicons-halflings-regular-8b164394b83117e1127e17bef7c224b2.svg#glyphicons_halflingsregular") format("svg")
+    src: url("/static/assets/bootstrap/glyphicons-halflings-regular.eot");
+    src: url("/static/assets/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/static/assets/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("/static/assets/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("/static/assets/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("/static/assets/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg")
 }
 .glyphicon {
     position: relative;
@@ -10471,9 +10471,6 @@ fieldset[disabled] .btn-warning.active {
     .theme .info .actions .btn-default {
         color: #666666
     }
-    .parallax-product {
-        height: auto
-    }
 }
 @media (max-width: 768px) {
     .freebie .info .actions .btn-default {
@@ -11896,16 +11893,14 @@ body.soon {
     margin-top: 100px
 }
 .pay-area .product-name {
-    margin-bottom: 50px;
     color: #FFFFFF;
-    font-size: 28px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45)
+    font-size: 40px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.45)
 }
 .pay-area h6 {
-    margin-top: 25px;
     color: #FFFFFF;
     font-size: 14px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45)
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.45)
 }
 .pay-area .btn {
     margin-bottom: 10px

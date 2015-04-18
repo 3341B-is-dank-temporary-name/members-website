@@ -14,7 +14,15 @@ def index():
     with current_app.open_resource("3341b_info.json") as f:
         info = json.load(f)
 
-    return render_template("index.html", info=info)
+    return render_template("index.html", info=info, home=True)
+
+@app.route("/leo")
+def aboutleo():
+    # Load 3341b info
+    with current_app.open_resource("3341b_info.json") as f:
+        info = json.load(f)
+        
+    return render_template("aboutleo.html", info=info)
 
 @app.route("/json")
 def raw_json():
