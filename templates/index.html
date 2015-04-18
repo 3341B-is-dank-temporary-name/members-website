@@ -55,7 +55,7 @@
                             </div>
                             <div class="card-info">
                                 <div class="moving">
-                                    <a href="#">
+                                    <a href="{{ resident.about_page_url }}">
                                         <h3>{{ resident.first_name }} {{ resident.last_name }}</h3>
                                         <p {% if resident.custom_description_font_size %}style="font-size: {{ resident.custom_description_font_size }};"{% endif %}>{{ resident.description }}</p>
                                     </a>
